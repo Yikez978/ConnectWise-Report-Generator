@@ -16,9 +16,9 @@ class ReportRequestData:
         # start formatting the query parameters
         query = []
         if start_date:
-            query.append("date_closed >= '{0} 0:00:00 AM'".format(start_date))
+            query.append("date_entered >= '{0} 0:00:00 AM'".format(start_date))
         if end_date:
-            query.append("date_closed < '{0} 0:00:00 AM'".format(end_date))
+            query.append("date_entered < '{0} 0:00:00 AM'".format(end_date))
         if company:
             query.append("company_name = '{0}'".format(company))
         if limit:
