@@ -63,14 +63,13 @@ class Report:
             incidents += 1
         return "Total Incidents: ", incidents
 
-    def total_open_incidents(self):
+    def open_incidents_by_group_with_oldest(self):
         open_calls = 0
         oldest_open = {"summary":"","date":""}
         for item in self.report.find_all('row'):
             if item.closed_flag.contents == [u"False"] and not (item.board_name.contents == [u'Managed Service Alerts']):
                 open_calls += 1
                 if item.date_entered.contents < oldest_open['date']:
-                    print item.board_name.contents
                     oldest_open["summary"], oldest_open["date"] = item.summary.contents, item.date_entered.contents[0]
         return "Open Incidents: ", open_calls, oldest_open
 
