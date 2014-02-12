@@ -86,21 +86,3 @@ def comma_separated(items):
     for x,y in items:
         print x,", ", y
 
-new_request = request.ReportRequestData(limit=0, company="New Jersey Urology CBO-1", start_date='02/10/2014')
-report = Report(new_request.request_document())
-
-print new_request.print_url()
-
-comma_separated(top_incidents(report.incident_count_by_service_type(), 10))
-comma_separated(top_incidents(report.incident_hours_by_service_type()))
-
-print "#### Incident hours ####"
-
-comma_separated(top_incidents(report.incident_hours_by_group()))
-comma_separated(top_incidents(report.incident_count_by_contact(), 10))
-
-print report.incident_count_by_group()
-print report.total_open_incidents()
-
-print report.total_incidents()
-
