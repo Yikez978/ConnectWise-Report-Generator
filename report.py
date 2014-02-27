@@ -63,7 +63,7 @@ class Report:
             incidents += 1
         return "Total Incidents: ", incidents
 
-    def open_incidents_by_group_with_oldest(self):
+    def open_incidents_with_oldest(self):
         open_calls = 0
         oldest_open = {"summary":"","date":""}
         for item in self.report.find_all('row'):
@@ -72,6 +72,28 @@ class Report:
                 if item.date_entered.contents < oldest_open['date']:
                     oldest_open["summary"], oldest_open["date"] = item.summary.contents, item.date_entered.contents[0]
         return "Open Incidents: ", open_calls, oldest_open
+
+    def incident_hours_by_company(self):
+        type_count = defaultdict(int)
+        for item in self.report.find_all():
+            if item.board_name and not (item.board_name.contents == [u'Managed Service Alerts']):
+                type_count[u"".join(item.company_name.contents)] += float("".join(item.hours_actual.contents))
+        return type_count
+
+    def incident_count_by_company(self):
+        type_count = defaultdict(int)
+        for item in self.report.find_all():
+            if item.contact_name and not (item.board_name.contents == [u'Managed Service Alerts']):
+                type_count[u"".join(item.company_name.contents)] += 1
+        return type_count
+
+    def tech_number_closed(self):
+        type_count = defaultdict(int)
+        for item in self.report.find_all():
+            if item.contact_name and not (item.board_name.contents == [u'Managed Service Alerts']):
+                if item.closed_by.contents:
+                    type_count[u"".join(item.closed_by.contents[0].lower())] += 1
+        return type_count
 
 def top_incidents(service_items, count=None):
     l = []
