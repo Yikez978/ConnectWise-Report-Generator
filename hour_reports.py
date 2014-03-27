@@ -1,8 +1,8 @@
 import request
 import report
 
-new_request = request.ReportRequestData(limit=0, start_date='02/02/2014', end_date='02/08/2014')
-new_report = report.Report(new_request.request_document())
+new_request = request.ReportRequestData(limit=0, start_date='03/09/2014', end_date='03/15/2014')
+new_report = report.Report(new_request.document())
 
 print "\n#### Generated URL ####"
 print new_request.print_url()
@@ -30,7 +30,6 @@ print new_report.incident_count_by_group()\
 
 print "\n#### Incidents Closed by Techs ####"
 print new_report.tech_number_closed()
-
 
 print "\n#### Total Incidents ####"
 print new_report.total_incidents()

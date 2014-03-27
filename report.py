@@ -9,21 +9,29 @@ class Report:
     def incident_count_by_service_type(self):
         type_count = defaultdict(int)
         for item in self.report.find_all():
+            service_item = []
             if item.servicetype and not (item.board_name.contents == [u'Managed Service Alerts']):
+                if item.servicesubtypeitem.contents:
+                    service_item.append(item.servicesubtypeitem.contents[0])
                 if item.servicesubtype.contents:
-                    type_count[u": ".join(map(str,(item.servicetype.contents + item.servicesubtype.contents)))] += 1
-                elif item.servicetype.contents:
-                    type_count[u"".join(item.servicetype.contents)] += 1
+                    service_item.append(item.servicesubtype.contents[0])
+                if item.servicetype.contents:
+                    service_item.append(item.servicetype.contents[0])
+                type_count[u": ".join(service_item[::-1])] += 1
         return type_count
 
     def incident_hours_by_service_type(self):
         type_count = defaultdict(int)
         for item in self.report.find_all():
+            service_item = []
             if item.servicetype and not (item.board_name.contents == [u'Managed Service Alerts']):
+                if item.servicesubtypeitem.contents:
+                    service_item.append(item.servicesubtypeitem.contents[0])
                 if item.servicesubtype.contents:
-                    type_count[u": ".join(map(str,(item.servicetype.contents + item.servicesubtype.contents)))] += float("".join(item.hours_actual.contents))
-                elif item.servicetype.contents:
-                    type_count[u"".join(item.servicetype.contents)] += float("".join(item.hours_actual.contents))
+                    service_item.append(item.servicesubtype.contents[0])
+                if item.servicetype.contents:
+                    service_item.append(item.servicetype.contents[0])
+                type_count[u": ".join(service_item[::-1])] += float("".join(item.hours_actual.contents))
         return type_count
 
     # def incident_hours_by_technician(self):
@@ -77,14 +85,14 @@ class Report:
         type_count = defaultdict(int)
         for item in self.report.find_all():
             if item.board_name and not (item.board_name.contents == [u'Managed Service Alerts']):
-                type_count[u"".join(item.company_name.contents)] += float("".join(item.hours_actual.contents))
+                type_count[u"".join(item.company_name.contents[0].strip(','))] += float("".join(item.hours_actual.contents))
         return type_count
 
     def incident_count_by_company(self):
         type_count = defaultdict(int)
         for item in self.report.find_all():
             if item.contact_name and not (item.board_name.contents == [u'Managed Service Alerts']):
-                type_count[u"".join(item.company_name.contents)] += 1
+                type_count[u"".join(item.company_name.contents[0].strip(','))] += 1
         return type_count
 
     def tech_number_closed(self):
@@ -95,10 +103,20 @@ class Report:
                     type_count[u"".join(item.closed_by.contents[0].lower())] += 1
         return type_count
 
+    def users_submitting_duplicate_accounts(self):
+        type_count = defaultdict(int)
+        for item in self.report.find_all():
+            if item.servicetype and item.servicesubtype and item.servicesubtypeitem and not (item.board_name.contents == [u'Managed Service Alerts']):
+                if ("Applications" in item.servicetype.contents) and ("GreenWay" in item.servicesubtype.contents) and ("Duplicate Accounts" in item.servicesubtypeitem.contents):
+                    type_count[item.contact_name.contents[0]] += 1
+        return type_count
+
+
 def top_incidents(service_items, count=None):
     l = []
     for k in sorted(service_items, key=service_items.get, reverse=True):
-        l.append((k, service_items[k]))
+        if not (k == "Admin: No Action") and not (k == "Admin: Meeting"):
+            l.append((k, service_items[k]))
     if count:
         return l[:count]
     return l

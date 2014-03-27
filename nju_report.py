@@ -1,8 +1,12 @@
 import request
 import report
 
-new_request = request.ReportRequestData(limit=0, company="New Jersey Urology CBO-1", start_date='02/16/2014', end_date='02/22/2014')
-new_report = report.Report(new_request.request_document())
+start = raw_input("Please enter start date (MM/DD/YYYY): ")
+end = raw_input("Please enter end date (MM/DD/YYYY): ")
+
+new_request = request.ReportRequestData(limit=0, company="New Jersey Urology CBO-1",
+                                        start_date=start, end_date=end)
+new_report = report.Report(new_request.document())
 
 print "\n#### Generated URL ####"
 print new_request.print_url()
@@ -27,3 +31,6 @@ print new_report.open_incidents_with_oldest()
 
 print "\n#### Total Incidents ####"
 print new_report.total_incidents()
+
+print "\n#### Duplicate Accounts ####"
+print report.comma_separated(report.top_incidents(new_report.users_submitting_duplicate_accounts(), 10))
