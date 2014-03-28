@@ -4,6 +4,9 @@ import report
 start = raw_input("Please enter start date (MM/DD/YYYY): ")
 end = raw_input("Please enter end date (MM/DD/YYYY): ")
 
+import sys
+sys.stdout = open('reportoutput.txt', 'w')
+
 new_request = request.ReportRequestData(limit=0, company="New Jersey Urology CBO-1",
                                         start_date=start, end_date=end)
 new_report = report.Report(new_request.document())
