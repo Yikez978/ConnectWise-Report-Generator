@@ -1,5 +1,7 @@
 import requests
-import config
+
+from reporting import config
+
 
 class ReportRequestData:
 
@@ -24,7 +26,7 @@ class ReportRequestData:
         self.parameters['q'] = self.query
         self.report = requests.get('http://na.myconnectwise.net/v4_6_release/webreport/', verify=False, params=self.parameters)
 
-    def print_url(self):
+    def url(self):
         return self.report.url
 
     def document(self):

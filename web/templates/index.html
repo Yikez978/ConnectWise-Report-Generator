@@ -1,0 +1,74 @@
+{% extends "main.html" %}
+    {% block body %}
+        <div class="content">
+            <div class="pure-g">
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                    <h3 class="content-subhead">
+                        <i class="fa fa-rocket"></i>
+                        Get Started Quickly
+                    </h3>
+                    <p>
+                        Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    </p>
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                    <h3 class="content-subhead">
+                        <i class="fa fa-mobile"></i>
+                        Responsive Layouts
+                    </h3>
+
+                    <p>
+                        Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    </p>
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                    <h3 class="content-subhead">
+                        <i class="fa fa-th-large"></i>
+                        Modular
+                    </h3>
+
+                    <p>
+                        Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    </p>
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                    <h3 class="content-subhead">
+                        <i class="fa fa-check-square-o"></i>
+                        Plays Nice
+                    </h3>
+
+                    <p>
+                        Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    </p>
+                </div>
+                <div class="pure-u-1">
+                    <p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    <canvas id="buyers" width="600" height="400"></canvas>
+        {{  chart_labels }}
+    <script>
+        // line chart data
+        var buyerData = {
+            // obviously not going to work unless you get the below *list* from the flask route
+            labels : {{ chart_labels }},
+            datasets : [
+                {
+                    fillColor : "rgba(172,194,132,0.4)",
+                    strokeColor : "#ACC26D",
+                    pointColor : "#fff",
+                    pointStrokeColor : "#9DB86D",
+                    // below is also a list
+                    data : {{ chart_data }}
+                }
+            ]
+        };
+        // get line chart canvas
+        var buyers = document.getElementById('buyers').getContext('2d');
+        // draw line chart
+        new Chart(buyers).Line(buyerData);
+        // pie chart data
+    </script>
+{% endblock %}

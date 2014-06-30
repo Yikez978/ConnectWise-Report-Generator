@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BMT Reporting Website</title>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+        <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+        <!--<![endif]-->
+        <!--[if lte IE 8]>
+        <link rel="stylesheet" href="{{ url_for('static', filename='marketing-old-ie.css') }}">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='marketing.css') }}">
+        <!--<![endif]-->
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <script src="{{ url_for('static', filename='Chart.js') }}"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+                <a class="pure-menu-heading" href="{{ url_for('index') }}">BMT Reporting Home</a>
+                <ul>
+                    <li class=""><a href="{{ url_for('reporting.company') }}">Company Reports</a></li>
+                </ul>
+                <ul>
+                    <li class=""><a href="{{ url_for('reporting.index') }}">Hour Reports</a></li>
+                </ul>
+                <ul>
+                    <li class=""><a href="{{ url_for('reporting.index') }}">Tech Reports</a></li>
+                </ul>
+                <ul>
+                    <li class=""><a href="{{ url_for('reporting.index') }}">Other Reports</a></li>
+                </ul>
+            </div>
+        </div>
+        {% block body %}{% endblock %}
+    </body>
+</html>

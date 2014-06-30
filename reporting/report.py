@@ -1,6 +1,8 @@
-import request
-from bs4 import BeautifulSoup
+import datetime
 from collections import defaultdict
+
+from bs4 import BeautifulSoup
+
 
 class Report:
     def __init__(self, report_data):
@@ -31,6 +33,7 @@ class Report:
                     service_item.append(item.servicesubtype.contents[0])
                 if item.servicetype.contents:
                     service_item.append(item.servicetype.contents[0])
+                    # below is magic to reverse the list :O
                 type_count[u": ".join(service_item[::-1])] += float("".join(item.hours_actual.contents))
         return type_count
 
@@ -58,11 +61,48 @@ class Report:
                 type_count[u"".join(item.board_name.contents)] += 1
         return type_count
 
+    def incident_count_by_day(self):
+        type_count = defaultdict(int)
+        for item in self.report.find_all():
+            if item.board_name and item.servicetype.contents:
+                if item.date_entered.contents and not (
+                        (item.board_name.contents == [u'Managed Service Alerts']) or
+                        ("MUST CHANGE" in item.servicetype.contents) or
+                        ("No Action" in item.servicesubtype.contents)):
+                    ticket_date = item.date_entered.contents[0].split(' ')
+                    month, day, year = (int(x) for x in ticket_date[0].split('/'))
+                    try:
+                        ans = datetime.date(year, month, day)
+                    except Exception, e:
+                        print e, year, month, day
+                    type_count[u"".join(ans.strftime("%A"))] += 1
+        return type_count
+
     def incident_count_by_contact(self):
         type_count = defaultdict(int)
         for item in self.report.find_all():
-            if item.contact_name and not (item.board_name.contents == [u'Managed Service Alerts']):
+            if item.contact_name and not (
+                    (item.board_name.contents == [u'Managed Service Alerts']) or
+                    ("Default Contact" in item.contact_name.contents)):
                 type_count[u"".join(item.contact_name.contents)] += 1
+        return type_count
+
+    def incident_type_count_by_contact(self):
+        type_count = defaultdict(int)
+        for item in self.report.find_all():
+            service_item = []
+            if item.servicetype and not (
+                    (item.board_name.contents == [u'Managed Service Alerts']) or
+                    ("Default Contact" in item.contact_name.contents)):
+                if item.servicesubtypeitem.contents:
+                    service_item.append(item.servicesubtypeitem.contents[0])
+                if item.servicesubtype.contents:
+                    service_item.append(item.servicesubtype.contents[0])
+                if item.servicetype.contents:
+                    service_item.append(item.servicetype.contents[0])
+                if item.contact_name.contents:
+                    service_item.append(item.contact_name.contents[0])
+                type_count[u": ".join(service_item[::-1])] += 1
         return type_count
 
     def total_incidents(self):
@@ -110,7 +150,6 @@ class Report:
                 if ("Applications" in item.servicetype.contents) and ("GreenWay" in item.servicesubtype.contents) and ("Duplicate Accounts" in item.servicesubtypeitem.contents):
                     type_count[item.contact_name.contents[0]] += 1
         return type_count
-
 
 def top_incidents(service_items, count=None):
     l = []

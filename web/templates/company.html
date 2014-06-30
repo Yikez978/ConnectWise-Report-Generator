@@ -1,0 +1,59 @@
+{% extends "main.html" %}
+    {% block body %}
+    <div class="content">
+        <div class="pure-g">
+            {% for chart_type, chart_id, chart_name, chart_data in charts %}
+                <h2>{{ chart_name }}</h2>
+                {% if chart_type == "pie_chart" %}
+                    <div class="pure-u-1">
+                        <center>
+                            <canvas id="{{ chart_id }}" class="center" width="1200px" height="1000px"
+                                    style="height: auto !important;width: 100% !important;max-width: 1200px;"></canvas>
+                        </center>
+                        <script>
+                            // line chart data
+                            var data = {{ chart_data|tojson|safe }};
+                            // get line chart canvas
+                            var {{ chart_id }} = document.getElementById('{{ chart_id }}').getContext('2d');
+                            // draw line chart
+                            var myoptions;
+                            myoptions = {
+                                inGraphDataShow: false,
+                                inGraphDataFontSize : 18,
+                                inGraphDataRotate : "inRadiusAxisRotateLabels",
+                                inGraphDataTmpl: "<%=v1 + ': ' + v2%>",
+                                legend : true,
+                                legendFontFamily : "'Arial'",
+                                legendFontSize : 22
+                            };
+                            new Chart({{ chart_id }}).Pie(data, myoptions);
+                            // pie chart data
+                        </script>
+                    </div>
+                {% endif %}
+                {% if chart_type == "bar_chart" %}
+                    <div class="pure-u-1">
+                        <center>
+                            <canvas id="{{ chart_id }}" class="center" width="1200px" height="1000px"
+                                    style="height: auto !important;width: 100% !important;max-width: 1200px;"></canvas>
+                        </center>
+                        <script>
+                            // line chart data
+                            var data = {{ chart_data|tojson|safe }};
+                            // get line chart canvas
+                            var {{ chart_id }} = document.getElementById('{{ chart_id }}').getContext('2d');
+                            // draw line chart
+                            var myoptions;
+                            myoptions = {
+                                inGraphDataShow: true,
+                                inGraphDataFontSize : 18,
+                                inGraphDataTmpl: "<%=v2 + ': ' + v3%>"
+                            };
+                            new Chart({{ chart_id }}).Bar(data, myoptions);
+                        </script>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
