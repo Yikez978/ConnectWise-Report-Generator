@@ -75,7 +75,7 @@
       <file leaf-file-name="supervisord.conf" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/supervisord.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="16" selection-start="293" selection-end="293" vertical-scroll-proportion="0.22160149" vertical-offset="0" max-vertical-offset="537">
+            <state line="20" column="0" selection-start="1100" selection-end="1100" vertical-scroll-proportion="0.6331471" vertical-offset="0" max-vertical-offset="578">
               <folding />
             </state>
           </provider>
@@ -663,7 +663,11 @@
       <created>1405076725472</created>
       <updated>1405076725472</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Supervisor config changes">
+      <created>1405076797084</created>
+      <updated>1405076797084</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -728,7 +732,8 @@
     </option>
     <MESSAGE value="Latest commits. Started web API." />
     <MESSAGE value="Supervisor config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Supervisor config" />
+    <MESSAGE value="Supervisor config changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Supervisor config changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1030,7 +1035,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/supervisord.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="16" selection-start="293" selection-end="293" vertical-scroll-proportion="0.22160149" vertical-offset="0" max-vertical-offset="537">
+        <state line="20" column="0" selection-start="1100" selection-end="1100" vertical-scroll-proportion="0.6331471" vertical-offset="0" max-vertical-offset="578">
           <folding />
         </state>
       </provider>
