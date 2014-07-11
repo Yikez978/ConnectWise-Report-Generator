@@ -74,7 +74,7 @@
       <file leaf-file-name="supervisord.conf" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/supervisord.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="22" selection-start="452" selection-end="452" vertical-scroll-proportion="0.28041238" vertical-offset="0" max-vertical-offset="578">
+            <state line="22" column="11" selection-start="1128" selection-end="1128" vertical-scroll-proportion="0.75100404" vertical-offset="0" max-vertical-offset="578">
               <folding />
             </state>
           </provider>
@@ -682,7 +682,11 @@
       <created>1405078219451</created>
       <updated>1405078219451</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Supervisor config changes">
+      <created>1405097996503</created>
+      <updated>1405097996503</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -695,7 +699,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30210528" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30210528" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1050,7 +1054,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/supervisord.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="22" selection-start="452" selection-end="452" vertical-scroll-proportion="0.28041238" vertical-offset="0" max-vertical-offset="578">
+        <state line="22" column="11" selection-start="1128" selection-end="1128" vertical-scroll-proportion="0.75100404" vertical-offset="0" max-vertical-offset="578">
           <folding />
         </state>
       </provider>
