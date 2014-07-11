@@ -2,41 +2,45 @@
     {% block body %}
     <div class="content">
         <div class="pure-g">
-            {% for chart_type, chart_id, chart_name, chart_data in charts %}
-                <h2>{{ chart_name }}</h2>
-                {% if chart_type == "pie_chart" %}
-                    <div class="pure-u-1">
-                        <center>
-                            <canvas id="{{ chart_id }}" class="center" width="1200px" height="1000px"
-                                    style="height: auto !important;width: 100% !important;max-width: 1200px;"></canvas>
-                        </center>
-                        <script>
-                            // line chart data
-                            var data = {{ chart_data|tojson|safe }};
-                            // get line chart canvas
-                            var {{ chart_id }} = document.getElementById('{{ chart_id }}').getContext('2d');
-                            // draw line chart
-                            var myoptions;
-                            myoptions = {
-                                inGraphDataShow: false,
-                                inGraphDataFontSize : 18,
-                                inGraphDataRotate : "inRadiusAxisRotateLabels",
-                                inGraphDataTmpl: "<%=v1 + ': ' + v2%>",
-                                legend : true,
-                                legendFontFamily : "'Arial'",
-                                legendFontSize : 22
-                            };
-                            new Chart({{ chart_id }}).Pie(data, myoptions);
-                            // pie chart data
-                        </script>
+            {% if company_list %}
+                <div class="content pure-u-1 center">
+                    <div class="header">
+                        <div class="pure-menu pure-menu-open pure-menu-horizontal">
+                            {% for c in company_list %}
+                                <ul>
+                                    <li class=""><a href="{{ url_for('reporting.company', company=c, count="default") }}">{{ c }}</a></li>
+                                </ul>
+                            {% endfor %}
+                        </div>
                     </div>
-                {% endif %}
-                {% if chart_type == "bar_chart" %}
-                    <div class="pure-u-1">
-                        <center>
-                            <canvas id="{{ chart_id }}" class="center" width="1200px" height="1000px"
+                </div>
+            {% endif %}
+            {% if company %}
+                <div class="pure-u-2-5">
+                </div>
+                <div class="content pure-u-1-5 center">
+                    <form class="pure-form" method="post" action="{{ url_for('reporting.company', company=company, count="default") }}">
+                        <fieldset>
+                            <label>MM/DD/YYYY
+                                <input type="text" name="start_date" value="{{ start_date }}">
+                                <input type="text" name="end_date" value="{{ end_date }}">
+                            </label>
+                            <button type="submit"  class="pure-button pure-button-primary">
+                                Change Date Range
+                            </button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="pure-u-2-5">
+                </div>
+            {% endif %}
+            {% for chart_type, chart_id, chart_name, chart_data in charts %}
+                {% if chart_type == "pie_chart" %}
+                    <div class="content pure-u-1-2 center">
+                            <h2>{{ chart_name }}</h2>
+                            <h4>For {{ date_range }}</h4>
+                            <canvas id="{{ chart_id }}" class="center" width="1200px" height="800px"
                                     style="height: auto !important;width: 100% !important;max-width: 1200px;"></canvas>
-                        </center>
                         <script>
                             // line chart data
                             var data = {{ chart_data|tojson|safe }};
@@ -47,9 +51,70 @@
                             myoptions = {
                                 inGraphDataShow: true,
                                 inGraphDataFontSize : 18,
-                                inGraphDataTmpl: "<%=v2 + ': ' + v3%>"
+                                inGraphDataTmpl: "<%=v2%>",
+                                legend : true,
+                                fmtLegend: "<%=v2%>",
+                                legendFontFamily : "'Arial'",
+                                legendFontSize : 22
+                            };
+                            new Chart({{ chart_id }}).Pie(data, myoptions);
+                            // pie chart data
+                        </script>
+                    </div>
+                {% endif %}
+                {% if chart_type == "bar_chart" %}
+                    <div class="content pure-u-1-2 center">
+                            <h2>{{ chart_name }}</h2>
+                            <h4>For {{ date_range }}</h4>
+                            <canvas id="{{ chart_id }}" class="center" width="1200px" height="800px"
+                                    style="height: auto !important;width: 100% !important;max-width: 1200px;"></canvas>
+                        <script>
+                            // line chart data
+                            var data = {{ chart_data|tojson|safe }};
+                            // get line chart canvas
+                            var {{ chart_id }} = document.getElementById('{{ chart_id }}').getContext('2d');
+                            // draw line chart
+                            var myoptions;
+                            myoptions = {
+                                inGraphDataShow: true,
+                                inGraphDataFontSize : 18,
+                                scaleFontSize : 20,
+                                scaleOverride: true,
+                                scaleSteps: 10,
+                                scaleStepWidth: Math.ceil({{ chart_data.datasets[0].data[0] }} / 10),
+                                scaleStartValue: 0,
+                                inGraphDataTmpl: "<%=v3%>",
+                                scaleLabel: "<%=value%>"
                             };
                             new Chart({{ chart_id }}).Bar(data, myoptions);
+                        </script>
+                    </div>
+                {% endif %}
+                {% if chart_type == "line_chart" %}
+                    <div class="content pure-u-1-2 center">
+                            <h2>{{ chart_name }}</h2>
+                            <h4>For {{ date_range }}</h4>
+                            <canvas id="{{ chart_id }}" class="center" width="1200px" height="800px"
+                                    style="height: auto !important;width: 100% !important;max-width: 1200px;"></canvas>
+                        <script>
+                            // line chart data
+                            var data = {{ chart_data|tojson|safe }};
+                            // get line chart canvas
+                            var {{ chart_id }} = document.getElementById('{{ chart_id }}').getContext('2d');
+                            // draw line chart
+                            var myoptions;
+                            myoptions = {
+                                inGraphDataShow: true,
+                                inGraphDataFontSize : 18,
+                                scaleFontSize : 20,
+                                scaleOverride: true,
+                                scaleSteps: 10,
+                                scaleStepWidth: Math.ceil({{ chart_data.datasets[0].data[0] }} / 10),
+                                scaleStartValue: 0,
+                                inGraphDataTmpl: "<%=v3%>",
+                                scaleLabel: "<%=value%>"
+                            };
+                            new Chart({{ chart_id }}).Line(data, myoptions);
                         </script>
                     </div>
                 {% endif %}

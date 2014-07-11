@@ -1,6 +1,6 @@
-from reporting import request, report
+from reporting import cw_request, report
 
-new_request = request.ReportRequestData(limit=0, start_date='05/25/2014', end_date='05/31/2014')
+new_request = cw_request.ReportRequestData(limit=0, start_date='05/25/2014', end_date='05/31/2014')
 new_report = report.Report(new_request.document())
 
 print "\n#### Generated URL ####"

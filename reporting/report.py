@@ -1,7 +1,7 @@
 import datetime
 from collections import defaultdict
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, SoupStrainer
 
 
 class Report:
@@ -10,7 +10,7 @@ class Report:
 
     def incident_count_by_service_type(self):
         type_count = defaultdict(int)
-        for item in self.report.find_all():
+        for item in self.report.find_all('row'):
             service_item = []
             if item.servicetype and not (item.board_name.contents == [u'Managed Service Alerts']):
                 if item.servicesubtypeitem.contents:
@@ -155,7 +155,7 @@ def top_incidents(service_items, count=None):
     l = []
     for k in sorted(service_items, key=service_items.get, reverse=True):
         if not (k == "Admin: No Action") and not (k == "Admin: Meeting"):
-            l.append((k, service_items[k]))
+            l.append((k, int(service_items[k])))
     if count:
         return l[:count]
     return l

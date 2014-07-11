@@ -5,7 +5,7 @@ def pie_chart(report_data_tuple_list, count):
     # I stole this, works well to generate an appropriate hex range.
     # change the count + 3 to make the last color match _less_ to the first chart color
     # change the .75 .75 to up/down the saturation and brightness
-    HSV_tuples = [(x*1.0/(count+3), 0.75, 0.75) for x in range(count+3)]
+    HSV_tuples = [(x*(3.381966)/(count+3), 0.75, 0.75) for x in xrange(count+3)]
     RGB_tuples = map(lambda x: colorsys.hsv_to_rgb(*x), HSV_tuples)
     RGB_tuples = map(lambda x: tuple(map(lambda y: int(y * 255),x)),RGB_tuples)
     HEX_tuples = map(lambda x: tuple(map(lambda y: chr(y).encode('hex'),x)), RGB_tuples)
@@ -15,7 +15,7 @@ def pie_chart(report_data_tuple_list, count):
         chart_data.append (
             {
                 "value": i,
-                "color": HEX_tuples[color_count],
+                "color": "#" + HEX_tuples[color_count],
                 "title": nt,
             }
         )
@@ -32,9 +32,9 @@ def bar_chart(report_data_tuple_list):
                     "labels": labels_and_data[0],
                     "datasets": [
                         {
-                            "fillColor": "rgba(220,220,220,0.5)",
-                            "strokeColor": "rgba(220,220,220,1)",
-                            "pointColor": "rgba(220,220,220,1)",
+                            "fillColor": "rgba(151,187,205,0.5)",
+                            "strokeColor": "rgba(151,187,205,1)",
+                            "pointColor": "rgba(151,187,205,1)",
                             "pointStrokeColor": "#fff",
                             "data": labels_and_data[1],
                             "title": "",

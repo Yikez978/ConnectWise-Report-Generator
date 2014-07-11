@@ -1,7 +1,7 @@
-from reporting import request, report
+from reporting import cw_request, report
 
-new_request = request.ReportRequestData(limit=0, report="Service", company="New Jersey Urology CBO-1",
-                                        start_date="02/08/2014", end_date="02/14/2014")
+new_request = cw_request.ReportRequestData(limit=0, report="Service", company="New Jersey Urology CBO-1",
+                                        start_date="06/15/2014", end_date="06/21/2014")
 new_report = report.Report(new_request.document())
 
 print "\n#### Generated URL ####"

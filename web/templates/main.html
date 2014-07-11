@@ -5,18 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>BMT Reporting Website</title>
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-        <!--[if lte IE 8]>
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
-        <![endif]-->
-        <!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
-        <!--<![endif]-->
-        <!--[if lte IE 8]>
-        <link rel="stylesheet" href="{{ url_for('static', filename='marketing-old-ie.css') }}">
-        <![endif]-->
-        <!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="{{ url_for('static', filename='marketing.css') }}">
-        <!--<![endif]-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <script src="{{ url_for('static', filename='Chart.js') }}"></script>
     </head>
@@ -28,14 +20,16 @@
                     <li class=""><a href="{{ url_for('reporting.company') }}">Company Reports</a></li>
                 </ul>
                 <ul>
-                    <li class=""><a href="{{ url_for('reporting.index') }}">Hour Reports</a></li>
+                    <li class=""><a href="{{ url_for('reporting.hours') }}">Hour Reports</a></li>
                 </ul>
+                <!--
                 <ul>
                     <li class=""><a href="{{ url_for('reporting.index') }}">Tech Reports</a></li>
                 </ul>
                 <ul>
                     <li class=""><a href="{{ url_for('reporting.index') }}">Other Reports</a></li>
                 </ul>
+                -->
             </div>
         </div>
         {% block body %}{% endblock %}
