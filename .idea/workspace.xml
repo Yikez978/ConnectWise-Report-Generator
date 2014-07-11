@@ -686,7 +686,11 @@
       <created>1405097996503</created>
       <updated>1405097996503</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Supervisor config changes">
+      <created>1405098050924</created>
+      <updated>1405098050924</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
