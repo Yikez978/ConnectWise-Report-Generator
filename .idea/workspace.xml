@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21179f4c-5972-4748-98dd-844dc9206bf5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app.py" afterPath="$PROJECT_DIR$/web/app.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/uwsgi.ini" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConnectWise-Report-Generator.iws" />
@@ -81,18 +81,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="report.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reporting/report.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="13" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2924">
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-                <marker date="1405003694020" expanded="true" signature="149:198" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="date_utils.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/date_utils.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -124,13 +112,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="239" selection-end="239" vertical-scroll-proportion="0.17288135" vertical-offset="0" max-vertical-offset="885">
+            <state line="15" column="12" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uwsgi.ini" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/uwsgi.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="23" selection-start="424" selection-end="424" vertical-scroll-proportion="0.40338984" vertical-offset="0" max-vertical-offset="885">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -191,6 +188,7 @@
         <option value="$PROJECT_DIR$/reporting/btph_report.py" />
         <option value="$PROJECT_DIR$/web/supervisord.conf" />
         <option value="$PROJECT_DIR$/web/app.py" />
+        <option value="$PROJECT_DIR$/web/uwsgi.ini" />
       </list>
     </option>
   </component>
@@ -696,7 +694,11 @@
       <created>1405098055972</created>
       <updated>1405098055972</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Supervisor config changes">
+      <created>1405100742743</created>
+      <updated>1405100742743</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -709,7 +711,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30210528" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3015873" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -768,11 +770,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/reporting/gramkow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="28" selection-start="184" selection-end="184" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="153" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reporting/cw_request.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="37" selection-start="321" selection-end="321" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="714" />
@@ -1019,7 +1016,7 @@
         <state line="6" column="13" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2924">
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1405003694020" expanded="true" signature="149:198" placeholder="..." />
+            <marker date="1405003694020" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1063,10 +1060,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="239" selection-end="239" vertical-scroll-proportion="0.17288135" vertical-offset="0" max-vertical-offset="885">
+        <state line="15" column="12" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/uwsgi.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="23" selection-start="424" selection-end="424" vertical-scroll-proportion="0.40338984" vertical-offset="0" max-vertical-offset="885">
+          <folding />
         </state>
       </provider>
     </entry>
