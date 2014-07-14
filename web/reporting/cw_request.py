@@ -1,6 +1,6 @@
 import requests
 
-from web.reporting import config
+from reporting import config
 
 
 class ReportRequestData:
