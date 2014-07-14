@@ -2,6 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21179f4c-5972-4748-98dd-844dc9206bf5" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/static/Chart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/reporting/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/reporting/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/reporting/btph_report.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/reporting/cw_request.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/reporting/gramkow.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/reporting/hour_reports.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/reporting/hour_trends.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/reporting/nju_report.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/reporting/problem_management.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/reporting/report.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/reporting/spec.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConnectWise-Report-Generator.iws" />
@@ -106,6 +118,7 @@
             <state line="10" column="21" selection-start="261" selection-end="261" vertical-scroll-proportion="0.39534885" vertical-offset="0" max-vertical-offset="816">
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
+                <marker date="1405348685620" expanded="true" signature="609:873" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -716,12 +729,16 @@
       <created>1405348694418</created>
       <updated>1405348694418</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Fix proxy">
+      <created>1405348851973</created>
+      <updated>1405348851973</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1672" y="-8" width="1696" height="1066" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -729,7 +746,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3015873" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3015873" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1098,6 +1115,7 @@
         <state line="10" column="21" selection-start="261" selection-end="261" vertical-scroll-proportion="0.39534885" vertical-offset="0" max-vertical-offset="816">
           <folding>
             <element signature="e#0#12#0" expanded="true" />
+            <marker date="1405348685620" expanded="true" signature="609:873" placeholder="..." />
           </folding>
         </state>
       </provider>
