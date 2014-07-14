@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21179f4c-5972-4748-98dd-844dc9206bf5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app.py" afterPath="$PROJECT_DIR$/web/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/reporting/btph_report.py" afterPath="$PROJECT_DIR$/web/reporting/btph_report.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/reporting/gramkow.py" afterPath="$PROJECT_DIR$/web/reporting/gramkow.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/reporting/hour_reports.py" afterPath="$PROJECT_DIR$/web/reporting/hour_reports.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/reporting/hour_trends.py" afterPath="$PROJECT_DIR$/web/reporting/hour_trends.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/reporting/nju_report.py" afterPath="$PROJECT_DIR$/web/reporting/nju_report.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/reporting/problem_management.py" afterPath="$PROJECT_DIR$/web/reporting/problem_management.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/reporting/report.py" afterPath="$PROJECT_DIR$/web/reporting/report.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConnectWise-Report-Generator.iws" />
@@ -100,10 +94,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="report.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="report.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/reporting/report.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="36" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="2924">
+            <state line="84" column="66" selection-start="4127" selection-end="4127" vertical-scroll-proportion="0.50757575" vertical-offset="1227" max-vertical-offset="2924">
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -120,10 +114,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="29" selection-start="923" selection-end="923" vertical-scroll-proportion="1.3716382" vertical-offset="0" max-vertical-offset="816">
+            <state line="3" column="44" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -205,6 +199,7 @@
         <option value="$PROJECT_DIR$/web/reporting/nju_report.py" />
         <option value="$PROJECT_DIR$/web/reporting/problem_management.py" />
         <option value="$PROJECT_DIR$/web/app.py" />
+        <option value="$PROJECT_DIR$/web/reporting/report.py" />
       </list>
     </option>
   </component>
@@ -746,7 +741,11 @@
       <created>1405349404865</created>
       <updated>1405349404865</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fixed testing port">
+      <created>1405349903302</created>
+      <updated>1405349903302</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -816,7 +815,8 @@
     <MESSAGE value="Fix proxy" />
     <MESSAGE value="added files to git" />
     <MESSAGE value="fixed imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed imports" />
+    <MESSAGE value="fixed testing port" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed testing port" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1116,15 +1116,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/reporting/report.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="36" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="2924">
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="26" selection-start="1601" selection-end="1601" vertical-scroll-proportion="0.0" vertical-offset="1206" max-vertical-offset="1666">
@@ -1136,9 +1127,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="29" selection-start="923" selection-end="923" vertical-scroll-proportion="1.3716382" vertical-offset="0" max-vertical-offset="816">
+        <state line="3" column="44" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
           <folding>
             <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/reporting/report.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="66" selection-start="4127" selection-end="4127" vertical-scroll-proportion="0.50757575" vertical-offset="1227" max-vertical-offset="2924">
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>

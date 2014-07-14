@@ -81,7 +81,7 @@ class Report:
     def incident_count_by_contact(self):
         type_count = defaultdict(int)
         for item in self.report.find_all():
-            if item.contact_name and not (
+            if item.contact_name and item.board_name and not (
                     (item.board_name.contents == [u'Managed Service Alerts']) or
                     ("Default Contact" in item.contact_name.contents)):
                 type_count[u"".join(item.contact_name.contents)] += 1
