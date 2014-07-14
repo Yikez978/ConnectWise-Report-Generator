@@ -1,7 +1,7 @@
 from datetime import date, timedelta
 
 from reporting import report
-from web.reporting import cw_request
+from reporting import cw_request
 
 
 def datespan(startDate, endDate, delta=timedelta(days=1)):

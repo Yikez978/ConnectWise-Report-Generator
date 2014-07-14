@@ -1,5 +1,5 @@
-from web.reporting import report
-from web.reporting import cw_request
+from reporting import report
+from reporting import cw_request
 
 new_request = cw_request.ReportRequestData(limit=0, company="Brian Trematore Plumbing & Heating, Inc.",
                                         start_date="06/01/2014", end_date="07/05/2014")

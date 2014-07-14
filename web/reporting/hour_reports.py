@@ -1,5 +1,5 @@
-from web.reporting import report
-from web.reporting import cw_request
+from reporting import report
+from reporting import cw_request
 
 new_request = cw_request.ReportRequestData(limit=0, start_date='05/25/2014', end_date='05/31/2014')
 new_report = report.Report(new_request.document())

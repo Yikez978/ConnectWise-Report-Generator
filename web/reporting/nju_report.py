@@ -1,5 +1,5 @@
-from web.reporting import report
-from web.reporting import cw_request
+from reporting import report
+from reporting import cw_request
 
 new_request = cw_request.ReportRequestData(limit=0, report="Service", company="New Jersey Urology CBO-1",
                                         start_date="06/15/2014", end_date="06/21/2014")
