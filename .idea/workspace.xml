@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21179f4c-5972-4748-98dd-844dc9206bf5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app.py" afterPath="$PROJECT_DIR$/web/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/views.py" afterPath="$PROJECT_DIR$/web/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConnectWise-Report-Generator.iws" />
@@ -105,7 +103,7 @@
       <file leaf-file-name="app.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="21" selection-start="238" selection-end="238" vertical-scroll-proportion="0.31627908" vertical-offset="0" max-vertical-offset="816">
+            <state line="10" column="21" selection-start="261" selection-end="261" vertical-scroll-proportion="0.39534885" vertical-offset="0" max-vertical-offset="816">
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -714,7 +712,11 @@
       <created>1405347949121</created>
       <updated>1405347949121</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fix proxy">
+      <created>1405348694418</created>
+      <updated>1405348694418</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -781,7 +783,8 @@
     <MESSAGE value="Supervisor config" />
     <MESSAGE value="Supervisor config changes" />
     <MESSAGE value="Fixed caching (blacklisted directory)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed caching (blacklisted directory)" />
+    <MESSAGE value="Fix proxy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix proxy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1092,7 +1095,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="21" selection-start="238" selection-end="238" vertical-scroll-proportion="0.31627908" vertical-offset="0" max-vertical-offset="816">
+        <state line="10" column="21" selection-start="261" selection-end="261" vertical-scroll-proportion="0.39534885" vertical-offset="0" max-vertical-offset="816">
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
