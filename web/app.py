@@ -41,3 +41,10 @@ if __name__ == '__main__':
     #TODO: turn debugging off
     app.debug = True
     app.run(host="0.0.0.0", port=8000)
+
+if not app.debug:
+    import logging
+    from logging import FileHandler
+    file_handler = FileHandler("/sites/bmt/log/flask.log")
+    file_handler.setLevel(logging.WARNING)
+    app.logger.addHandler(file_handler)
