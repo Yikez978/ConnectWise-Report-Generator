@@ -1,7 +1,10 @@
 from flask import Blueprint, request, render_template, redirect, url_for
-from reporting import cw_request, report
+
+from reporting import report
 import chart_generators
 import date_utils
+from web.reporting import cw_request
+
 
 mod = Blueprint('reporting', __name__, url_prefix='/reports')
 
