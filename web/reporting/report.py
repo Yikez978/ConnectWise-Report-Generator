@@ -12,7 +12,7 @@ class Report:
         type_count = defaultdict(int)
         for item in self.report.find_all('row'):
             service_item = []
-            if item.servicetype and not (item.board_name.contents == [u'Managed Service Alerts']):
+            if item.servicetype and item.board_name and not (item.board_name.contents == [u'Managed Service Alerts']):
                 if item.servicesubtypeitem.contents:
                     service_item.append(item.servicesubtypeitem.contents[0])
                 if item.servicesubtype.contents:
@@ -26,7 +26,7 @@ class Report:
         type_count = defaultdict(int)
         for item in self.report.find_all():
             service_item = []
-            if item.servicetype and not (item.board_name.contents == [u'Managed Service Alerts']):
+            if item.servicetype and item.board_name and not (item.board_name.contents == [u'Managed Service Alerts']):
                 if item.servicesubtypeitem.contents:
                     service_item.append(item.servicesubtypeitem.contents[0])
                 if item.servicesubtype.contents:
@@ -91,7 +91,7 @@ class Report:
         type_count = defaultdict(int)
         for item in self.report.find_all():
             service_item = []
-            if item.servicetype and not (
+            if item.servicetype and item.board_name and item.contact_name and not (
                     (item.board_name.contents == [u'Managed Service Alerts']) or
                     ("Default Contact" in item.contact_name.contents)):
                 if item.servicesubtypeitem.contents:
@@ -115,7 +115,7 @@ class Report:
         open_calls = 0
         oldest_open = {"summary":"","date":""}
         for item in self.report.find_all('row'):
-            if item.closed_flag.contents == [u"False"] and not (item.board_name.contents == [u'Managed Service Alerts']):
+            if item.closed_flag.contents == [u"False"] and item.board_name and not (item.board_name.contents == [u'Managed Service Alerts']):
                 open_calls += 1
                 if item.date_entered.contents < oldest_open['date']:
                     oldest_open["summary"], oldest_open["date"] = item.summary.contents, item.date_entered.contents[0]
@@ -131,14 +131,14 @@ class Report:
     def incident_count_by_company(self):
         type_count = defaultdict(int)
         for item in self.report.find_all():
-            if item.contact_name and not (item.board_name.contents == [u'Managed Service Alerts']):
+            if item.contact_name and item.board_name and not (item.board_name.contents == [u'Managed Service Alerts']):
                 type_count[u"".join(item.company_name.contents[0].strip(','))] += 1
         return type_count
 
     def tech_number_closed(self):
         type_count = defaultdict(int)
         for item in self.report.find_all():
-            if item.contact_name and not (item.board_name.contents == [u'Managed Service Alerts']):
+            if item.contact_name and item.board_name and not (item.board_name.contents == [u'Managed Service Alerts']):
                 if item.closed_by.contents:
                     type_count[u"".join(item.closed_by.contents[0].lower())] += 1
         return type_count
