@@ -1,8 +1,7 @@
 from datetime import date, timedelta
 
-from reporting import report
-from reporting import cw_request
-
+import report
+import cw_request
 
 def datespan(startDate, endDate, delta=timedelta(days=1)):
     currentDate = startDate

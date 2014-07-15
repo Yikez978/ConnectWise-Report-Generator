@@ -15,11 +15,17 @@
                     </div>
                 </div>
             {% endif %}
-            {% if company %}
+            {% if charts %}
                 <div class="pure-u-2-5">
+                {{ request.script_root }}
                 </div>
                 <div class="content pure-u-1-5 center">
-                    <form class="pure-form" method="post" action="{{ url_for('reporting.company', company=company, count="default") }}">
+                    {% if "company" in request.path %}
+                        <form class="pure-form" method="post" action="{{ url_for('reporting.company', company=company, count="default") }}">
+                    {% endif %}
+                    {% if "hours" in request.path %}
+                        <form class="pure-form" method="post" action="{{ url_for('reporting.hours', company=company, count="default") }}">
+                    {% endif %}
                         <fieldset>
                             <label>MM/DD/YYYY
                                 <input type="text" name="start_date" value="{{ start_date }}">
@@ -35,7 +41,7 @@
                 </div>
             {% endif %}
             {% for chart_type, chart_id, chart_name, chart_data in charts %}
-                {% if chart_type == "pie_chart" %}
+                {% if chart_type == "pie_chart" and chart_data %}
                     <div class="content pure-u-1-2 center">
                             <h2>{{ chart_name }}</h2>
                             <h4>For {{ date_range }}</h4>
@@ -62,7 +68,7 @@
                         </script>
                     </div>
                 {% endif %}
-                {% if chart_type == "bar_chart" %}
+                {% if chart_type == "bar_chart" and chart_data %}
                     <div class="content pure-u-1-2 center">
                             <h2>{{ chart_name }}</h2>
                             <h4>For {{ date_range }}</h4>
@@ -90,7 +96,7 @@
                         </script>
                     </div>
                 {% endif %}
-                {% if chart_type == "line_chart" %}
+                {% if chart_type == "line_chart" and chart_data %}
                     <div class="content pure-u-1-2 center">
                             <h2>{{ chart_name }}</h2>
                             <h4>For {{ date_range }}</h4>

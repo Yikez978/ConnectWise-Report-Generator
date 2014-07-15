@@ -28,17 +28,19 @@ def bar_chart(report_data_tuple_list):
     # this is the same way as pie_chart, a dictionary we pass to the view for the js to handle.
     # this just follows the schema set forth in the ChartNew.js docs
     labels_and_data = zip(*report_data_tuple_list)
-    chart_data = {
-                    "labels": labels_and_data[0],
-                    "datasets": [
-                        {
-                            "fillColor": "rgba(151,187,205,0.5)",
-                            "strokeColor": "rgba(151,187,205,1)",
-                            "pointColor": "rgba(151,187,205,1)",
-                            "pointStrokeColor": "#fff",
-                            "data": labels_and_data[1],
-                            "title": "",
-                        },
-                    ],
-                }
-    return chart_data
+    if labels_and_data:
+        chart_data = {
+                        "labels": labels_and_data[0],
+                        "datasets": [
+                            {
+                                "fillColor": "rgba(151,187,205,0.5)",
+                                "strokeColor": "rgba(151,187,205,1)",
+                                "pointColor": "rgba(151,187,205,1)",
+                                "pointStrokeColor": "#fff",
+                                "data": labels_and_data[1],
+                                "title": "",
+                            },
+                        ],
+                    }
+        return chart_data
+    return None

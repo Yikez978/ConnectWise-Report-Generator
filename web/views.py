@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, redirect, url_for
+from flask import Blueprint, request, render_template, redirect, url_for, Request
 
 from reporting import report
 import chart_generators
@@ -24,14 +24,16 @@ def company(company=None, date_range=None, count=20):
         This is for the company report API
         Need a company and date range.
     """
-    company_list = ["Brian Trematore Plumbing & Heating, Inc.",]
+    company_list = ["Brian Trematore Plumbing & Heating, Inc.", "New Jersey Urology CBO-1",
+                    "Business Machine Technologies", "Gramkow Carnevale Seifert, Inc.",
+                    "Water-Jel Technologies LLC", "Freeman Hughes Freeman Law", "Dugan Colthart & Zoch",
+                    "Sherwood Learning Solutions, Inc.",]
     if count == "default":
         count = 20
     count = int(count)
-    if request.method == "POST":
-        if request.form['start_date'] and request.form['end_date']:
-            date_range = ":".join((request.form['start_date'],request.form['end_date']))
-            return redirect(url_for('reporting.company', count="default", company=company, date_range=date_range))
+    if request.method == "POST" and request.form['start_date'] and request.form['end_date']:
+        date_range = ":".join((request.form['start_date'],request.form['end_date']))
+        return redirect(url_for('reporting.company', count="default", company=company, date_range=date_range))
     if not date_range or (date_range=="default"):
         date_range = date_utils.get_previous_week_range()
     dates = date_utils.format_date_for_cw(date_range)
@@ -73,6 +75,9 @@ def hours(company=None, date_range=None, count=20):
     if count == "default":
         count = 20
     count = int(count)
+    if request.method == "POST" and request.form['start_date'] and request.form['end_date']:
+        date_range = ":".join((request.form['start_date'],request.form['end_date']))
+        return redirect(url_for('reporting.hours', count="default", company="default", date_range=date_range))
     if not date_range or (date_range=="default"):
         date_range = date_utils.get_previous_week_range()
     dates = date_utils.format_date_for_cw(date_range)
@@ -90,4 +95,4 @@ def hours(company=None, date_range=None, count=20):
                "Hours by Company", chart_generators.bar_chart(incident_hours_by_company)),
               ]
     return render_template('company.html', company=company, date_range=date_range,
-                           charts=charts)
+                           charts=charts, start_date=dates[0], end_date=dates[1] )
