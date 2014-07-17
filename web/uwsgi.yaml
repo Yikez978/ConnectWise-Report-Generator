@@ -1,8 +1,5 @@
 uwsgi:
   socket: /tmp/uwsgi.sock
-  daemonize: /sites/bmt/log/uwsgi/uwsgi-d.log
-  master: true
-  vacuum: true
   #wsgi-file: /var/www/coefficient/coefficient.py
   wsgi-file: /sites/bmt/ConnectWise-Report-Generator/web/app.py
   callable: app
