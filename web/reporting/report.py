@@ -106,9 +106,7 @@ class Report:
         return type_count
 
     def total_incidents(self):
-        incidents = 0
-        for item in self.report.find_all('row'):
-            incidents += 1
+        incidents = self.report.find_all('row').count()
         return "Total Incidents: ", incidents
 
     def open_incidents_with_oldest(self):
@@ -142,6 +140,43 @@ class Report:
                 if item.closed_by.contents:
                     type_count[u"".join(item.closed_by.contents[0].lower())] += 1
         return type_count
+
+    def tech_hours_unassigned(self):
+        type_count = defaultdict(int)
+        for item in self.report.find_all():
+            if item.charge_to or item.work_type:
+                if item.charge_to.contents or item.work_type.contents:
+                    if "Unassigned" in item.charge_to.contents or "Unallocated" in item.charge_to.contents or "Unallocated" in item.work_type.contents:
+                        type_count[u"".join(item.member_id.contents[0].lower())] += float("".join(item.hours_actual.contents))
+        return type_count
+
+    def tech_hours_breakdown(self):
+        tech_client_hour_mapping = {}
+        for item in self.report.find_all():
+            if item.charge_to or item.work_type:
+                if item.member_id.contents and item.company_name.contents:
+                    tech = u"".join(item.member_id.contents[0].lower())
+                    company = u"".join(item.company_name.contents[0].lower())
+                    if not tech in tech_client_hour_mapping:
+                        tech_client_hour_mapping[tech] = defaultdict(int)
+                        tech_client_hour_mapping[tech][company] += float("".join(item.hours_actual.contents))
+                    else:
+                        tech_client_hour_mapping[tech][company] += float("".join(item.hours_actual.contents))
+        return tech_client_hour_mapping
+
+    def company_hours_breakdown(self):
+        company_tech_hour_mapping = {}
+        for item in self.report.find_all():
+            if item.charge_to or item.work_type:
+                if item.member_id.contents and item.company_name.contents:
+                    tech = u"".join(item.member_id.contents[0].lower())
+                    company = u"".join(item.company_name.contents[0].lower())
+                    if not company in company_tech_hour_mapping:
+                        company_tech_hour_mapping[company] = defaultdict(int)
+                        company_tech_hour_mapping[company][tech] += float("".join(item.hours_actual.contents))
+                    else:
+                        company_tech_hour_mapping[company][tech] += float("".join(item.hours_actual.contents))
+        return company_tech_hour_mapping
 
     def users_submitting_duplicate_accounts(self):
         type_count = defaultdict(int)

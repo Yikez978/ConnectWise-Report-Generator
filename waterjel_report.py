@@ -2,20 +2,11 @@ import request
 import report
 
 import sys
-
-start_date = raw_input("Please enter the start date (MM/DD/YYYY): ")
-end_date = raw_input("Please enter the end date (MM/DD/YYYY): ")
-
 curstdout = sys.stdout
 sys.stdout = open('reportoutput.txt', 'w')
 
-
-
-print start_date
-
-new_request = request.ReportRequestData(limit=0, start_date=start_date, end_date=end_date,
-                                        company="New Jersey Urology CBO-1")
-
+new_request = request.ReportRequestData(limit=0, start_date="01/01/2014", end_date="08/10/2014",
+                                        company="Water-Jel Technologies LLC")
 new_report = report.Report(new_request.document())
 
 print "\n#### Generated URL ####"
