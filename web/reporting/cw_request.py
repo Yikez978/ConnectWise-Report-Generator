@@ -1,7 +1,6 @@
 import requests
 import config
 
-
 class ReportRequestData:
 
     def __init__(self, report=None, limit=None, start_date=None, end_date=None, company=None):
@@ -30,7 +29,7 @@ class ReportRequestData:
         query = " and ".join(query)
         parameters['r'] = report_type
         parameters['q'] = query
-        self.report = requests.get('https://api-na.myconnectwise.net/v2014_6/webreport/', verify=False, params=parameters)
+        self.report = requests.get('https://api-na.myconnectwise.net/v2014_6/webreport/', verify=True, params=parameters)
 
     def url(self):
         return self.report.url

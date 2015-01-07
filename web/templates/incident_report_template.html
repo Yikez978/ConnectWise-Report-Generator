@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Report Template</title>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
+    </head>
+    <body>
+    <div class="wrapper center large-padding">
+            <div class="pure-g">
+                <div class="pure-u-1-1">
+                    <center>
+                         <strong>BMT Service Ticket Report</strong>
+                        <br>
+                        <br>
+                        <strong>{{ company }}</strong>
+                        <br>
+                        <br>
+                        <i>For period {{ start_date }} to {{ end_date }}</i>
+                    </center>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="pure-g title-bar small-padding">
+                <div class="pure-u-1-8">
+                    Ticket ID
+                </div>
+                <div class="pure-u-1-8">
+                    Date Opened
+                </div>
+                <div class="pure-u-1-8">
+                    Contact
+                </div>
+                <div class="pure-u-1-8">
+                    Summary
+                </div>
+                <div class="pure-u-1-8">
+                    Service Type
+                </div>
+                <div class="pure-u-1-8">
+                    Status
+                </div>
+                <div class="pure-u-1-8">
+                    Support Details
+                </div>
+                <div class="pure-u-1-8">
+                    Date Closed
+                </div>
+            </div>
+        {% for incident in incidents %}
+            <div class="pure-g info-bar small-padding">
+                <div class="pure-u-1-8">
+                    {{ incident.ticket_id }}
+                </div>
+                <div class="pure-u-1-8">
+                    {{ incident.date_opened }}
+                </div>
+                <div class="pure-u-1-8">
+                    {{ incident.contact }}
+                </div>
+                <div class="pure-u-1-8">
+                    <strong>
+                        {{ incident.summary }}
+                    </strong>
+                </div>
+                <div class="pure-u-1-8">
+                    {{ incident.service_type }}
+                </div>
+                <div class="pure-u-1-8">
+                    {{ incident.status }}
+                </div>
+                <div class="pure-u-1-8">
+                    {{ incident.support_details }}
+                </div>
+                <div class="pure-u-1-8">
+                    {{ incident.date_closed }}
+                </div>
+            </div>
+            <div class="pure-g large-padding small-padding">
+                <div class="pure-u-1-5">
+                    <strong>Details: </strong>
+                </div>
+                <div class="pure-u-4-5 ticket-contents">
+                    {{ incident.details | safe }}
+                </div>
+                <div class="pure-u-1-5 small-padding">
+                    <strong>Resolution: </strong>
+                </div>
+                <div class="pure-u-4-5  ticket-contents">
+                    {{ incident.resolution | safe }}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </body>
+</html>

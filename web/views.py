@@ -96,3 +96,27 @@ def hours(company=None, date_range=None, count=20):
               ]
     return render_template('company.html', company=company, date_range=date_range,
                            charts=charts, start_date=dates[0], end_date=dates[1] )
+
+@mod.route('/service/<company>/<date_range>/', methods=['GET', 'POST'])
+@mod.route('/service/<company>/', methods=['GET', 'POST'])
+@mod.route('/service/', methods=['GET', 'POST'])
+def service(company=None, date_range=None, count=20):
+    """
+        This is to pull hour reports. If no company is set, or daterange, it will go to defaults.
+    """
+    if company == "default":
+        company = None
+
+    if not date_range or (date_range=="default"):
+        date_range = date_utils.get_previous_week_range()
+
+    dates = date_utils.format_date_for_cw(date_range)
+    new_request = cw_request.ReportRequestData(limit=0, company=company,
+                                    start_date=dates[0], end_date=dates[1])
+
+    report_data = report.Report(new_request.document())
+    print "Request sent for: " + new_request.url()
+    incidents = report_data.incident_details()
+
+    return render_template('incident_report_template.html', company=company, date_range=date_range, incidents=incidents,
+                           start_date=dates[0], end_date=dates[1])

@@ -20,27 +20,27 @@ def index():
     """
     return render_template('index.html')
 
-@app.before_request
-def return_cached():
-    if request.url.split("/")[-2] == "static":
-        request.values = "true"
-        print "ignoring cache for: " + request.url.split("/")[-2]
-    if not request.values:
-        response = cache.get(request.path)
-        if response:
-            return response
+#@app.before_request
+#def return_cached():
+#    if request.url.split("/")[-2] == "static":
+#        request.values = "true"
+#        print "ignoring cache for: " + request.url.split("/")[-2]
+#    if not request.values:
+#        response = cache.get(request.path)
+#        if response:
+#            return response
 
-@app.after_request
-def cache_response(response):
-    if not request.values:
-        cache.set(request.path, response, CACHE_TIMEOUT)
-    return response
+#@app.after_request
+#def cache_response(response):
+#    if not request.values:
+#        cache.set(request.path, response, CACHE_TIMEOUT)
+#    return response
 
 if __name__ == '__main__':
     app.testing = True
     #TODO: turn debugging off
     app.debug = True
-    app.run(host="0.0.0.0", port=8000)
+    app.run(host="127.0.0.1", port=8000)
 
 if not app.debug:
     import logging
